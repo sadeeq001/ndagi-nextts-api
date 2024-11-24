@@ -1,11 +1,11 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-type PageProps = {
+interface PageProps {
   params: {
     id: string;
   };
-};
+}
 
 export async function GET({ params }: PageProps) {
   try {
@@ -67,7 +67,7 @@ export async function DELETE({ params }: PageProps) {
 
 export async function PUT(req: Request, { params }: PageProps) {
   try {
-    const { id } = await params; // This ensures the params are awaited
+    const { id } = params; // This ensures the params are awaited
     // Parse the request body as JSON
     const { fname, onames, phone, email, state, city, address } = await req.json();
 
