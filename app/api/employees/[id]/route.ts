@@ -1,9 +1,15 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export async function GET({ params }: PageProps) {
   try {
-    const { id } = await params;
+    const { id } = params;
     const employee = await db.employee.findUnique({
       where: {
         id: id
@@ -27,9 +33,9 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
   }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE({ params }: PageProps) {
   try {
-    const { id } = await params;
+    const { id } = params;
     const existingEmployee = await db.employee.findUnique({
       where: {
         id: id
@@ -59,9 +65,9 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
   }
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, { params }: PageProps) {
   try {
-    const { id } = await params;
+    const { id } = params;
     // Parse the request body as JSON
     const { fname, onames, phone, email, state, city, address } = await req.json();
 

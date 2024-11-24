@@ -1,7 +1,5 @@
 "use client";
-
-import SubmitButton from '@/components/FormInputs/SubmitButton'
-import TextAreaInput from '@/components/FormInputs/TextAreaInpunt';
+import TextAreaInput from '@/components/FormInputs/TextAreaInput';
 import TextInput from '@/components/FormInputs/TextInput';
 import { makePostRequest, makePutRequest } from '@/lib/apiRequest';
 import { Mail, Phone, Send, User } from 'lucide-react';
@@ -9,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { DialogClose } from "@/components/ui/dialog";
+import SubmitButton from '../FormInputs/SubmitButton';
 
 export type EmployeeProps = {
   id: string | undefined;

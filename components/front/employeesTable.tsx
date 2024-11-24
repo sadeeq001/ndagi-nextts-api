@@ -3,16 +3,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from '../ui/button';
 import { getData } from '@/lib/getData';
-import { Input } from '../ui/input';
-import { makeDeleteRequest, makePutRequest } from '@/lib/apiRequest';
+import { makeDeleteRequest } from '@/lib/apiRequest';
 import { useRouter } from 'next/navigation';
-import SubmitButton from '../FormInputs/SubmitButton';
-import { Send } from 'lucide-react';
-import { useForm } from 'react-hook-form';
 import EmployeeForm from './employee-form';
 
 type EmployeeProps = {
