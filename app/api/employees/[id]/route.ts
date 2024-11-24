@@ -9,7 +9,7 @@ type PageProps = {
 
 export async function GET({ params }: PageProps) {
   try {
-    const { id } = params;
+    const { id } = await params; // This ensures the params are awaited
     const employee = await db.employee.findUnique({
       where: {
         id: id
@@ -35,7 +35,7 @@ export async function GET({ params }: PageProps) {
 
 export async function DELETE({ params }: PageProps) {
   try {
-    const { id } = params;
+    const { id } = await params; // This ensures the params are awaited
     const existingEmployee = await db.employee.findUnique({
       where: {
         id: id
@@ -67,7 +67,7 @@ export async function DELETE({ params }: PageProps) {
 
 export async function PUT(req: Request, { params }: PageProps) {
   try {
-    const { id } = params;
+    const { id } = await params; // This ensures the params are awaited
     // Parse the request body as JSON
     const { fname, onames, phone, email, state, city, address } = await req.json();
 

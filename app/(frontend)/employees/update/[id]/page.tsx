@@ -2,8 +2,14 @@ import EmployeeForm from '@/components/front/employee-form';
 import { getData } from '@/lib/getData';
 import React from 'react'
 
-export default async function page({ params }: { params: { id: string } }) {
-  const { id } = await params;
+interface PageProps {
+  params: {
+    id: string
+  }
+}
+
+export default async function page({ params }: PageProps) {
+  const { id } = params;
   // Make sure params are resolved and then fetch the employee data
   const employee = await getData(`employees/${id}`);
   //console.log(params.id);
