@@ -1,12 +1,7 @@
 import EmployeeForm from '@/components/front/employee-form';
 import { getData } from '@/lib/getData';
+import { PageProps } from '@/lib/types';
 import React from 'react'
-
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
 
 export default async function page({ params }: PageProps) {
   const { id } = params; // No need to await params, as it's already resolved
