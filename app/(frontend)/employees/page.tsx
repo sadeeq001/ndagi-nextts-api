@@ -7,11 +7,19 @@ import { Employee } from '@/lib/types';
 export const dynamic = 'force-dynamic';
 
 export default async function page() {
-    const employeesData: Employee[] = await getData("employees");
+    const employeesData: Employee[] | null = await getData("employees");
+
+    if (!employeesData) {
+        return <div>Error loading employees data. Please try again later.</div>
+      }
 
     return (
         <div className="">
-            <EmployeesTable employees={ employeesData } />
+        {employeesData.length > 0 ? (
+        <EmployeesTable employees={employeesData} />
+        ) : (
+            <div>No employees found.</div>
+        )}
         </div>
     )
 }
