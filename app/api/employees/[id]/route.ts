@@ -1,11 +1,11 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-type PageProps = {
+interface PageProps {
   params: {
     id: string;
   };
-};
+}
 
 export async function GET({ params }: PageProps) {
   try {
