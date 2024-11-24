@@ -2,10 +2,9 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 interface PageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
+
 
 export async function GET({ params }: PageProps) {
   try {
