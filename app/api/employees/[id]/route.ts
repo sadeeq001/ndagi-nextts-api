@@ -5,8 +5,7 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-
-export async function GET({ params }: PageProps) {
+export async function GET(req: Request, { params }: PageProps) {
   try {
     const { id } = await params
     const employee = await db.employee.findUnique({
@@ -32,7 +31,7 @@ export async function GET({ params }: PageProps) {
   }
 }
 
-export async function DELETE({ params }: PageProps) {
+export async function DELETE(req: Request, { params }: PageProps) {
   try {
     const { id } = await params;
     const existingEmployee = await db.employee.findUnique({
