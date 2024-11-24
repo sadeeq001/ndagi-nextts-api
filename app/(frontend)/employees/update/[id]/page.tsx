@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { id } = params;
+  const { id } = await params
   // Make sure params are resolved and then fetch the employee data
   const employee = await getData(`employees/${id}`);
   return (
